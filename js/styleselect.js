@@ -151,7 +151,11 @@
 
 	// The 'styleSelect' main function
 	// selector:String - CSS selector for the select box to style
-	return function(selector) {
+	return function(selector, options) {
+
+		var settings = {
+			target: options.target,
+		};
 
 		// Use native selects (which pop up large native UIs to go through the options ) on iOS/Android
 		if ( navigator.userAgent.match( /iPad|iPhone|Android/i ) ) {
@@ -197,8 +201,13 @@
 		});
 		optionsHTML += '</div>';
 		styleSelectHTML += selectedOptionHTML += optionsHTML += '</div>';
-		// And add out styled select just after the real select
-		realSelect.insertAdjacentHTML('afterend', styleSelectHTML);
+		
+		// And add out styled select just after the real select if no target is set
+		if(settings.target){
+			settings.target.insertAdjacentHTML('beforeend', styleSelectHTML);	
+		} else{
+			realSelect.insertAdjacentHTML('afterend', styleSelectHTML);
+		}
 
 		var styledSelect = query('.style-select[data-ss-uuid="'+uuid+'"]');
 		var styleSelectOptions = styledSelect.querySelectorAll('.ss-option');

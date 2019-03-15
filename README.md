@@ -56,6 +56,20 @@ Where `selector` is a CSS selector and `element` is an HTML Element or NodeList.
 
 That's all. From then on you'll probably want to tweak styling.
 
+#### Options 
+
+`target` 
+    
+Appends the styled select box to a custom container.
+
+    styleSelect(
+        element, 
+        {
+            target: this.container
+        }
+    );
+
+
 ## Credit
 
 Style Select is based on [VisualSelect](https://github.com/LeslieOA/VisualSelect), created for Multplx Attract platform.
