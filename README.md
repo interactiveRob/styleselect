@@ -58,14 +58,14 @@ That's all. From then on you'll probably want to tweak styling.
 
 #### Options 
 
-`target` 
-    
-Appends the styled select box to a custom container.
+`target: HTML Element` 
+
+Appends the styled select box to a custom container. 
 
     styleSelect(
         element, 
         {
-            target: this.container
+            target: container
         }
     );
 
